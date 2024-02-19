@@ -34,7 +34,8 @@ export class RegisterComponent implements OnInit {
     private themeService: ThemeService,
     private formBuilder: FormBuilder
   ) {
-    const storedUsers = localStorage.getItem('users');
+    const storedUsers =
+      typeof window !== 'undefined' ? localStorage.getItem('users') : null;
     this.users = storedUsers ? JSON.parse(storedUsers) : [];
 
     this.registrationForm = this.formBuilder.group({
