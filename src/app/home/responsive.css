@@ -54,7 +54,8 @@
   }
 
   .home {
-    grid-template-rows: 2.1fr 0.05fr 0.8fr 0.05fr 0.8fr 0.15fr;
+    width: 80vw;
+    grid-template-rows: 1.5fr 0.05fr 0.8fr 0.05fr 0.8fr 0.15fr;
   }
 
   h6 {
@@ -91,7 +92,9 @@
   }
 
   .home {
-    grid-template-rows: 2.2fr 0.05fr 0.5fr 0.05fr 0.5fr 0.15fr;
+    width: 80vw;
+    padding-top: 60px;
+    grid-template-rows: 1.6fr 0.05fr 0.5fr 0.05fr 0.5fr 0.15fr;
   }
 
   h6 {
@@ -132,7 +135,9 @@
   }
 
   .home {
-    grid-template-rows: 2.2fr 0.05fr 0.5fr 0.05fr 0.5fr 0.15fr;
+    width: 80vw;
+    grid-template-rows: 1.5fr 0.05fr 0.5fr 0.05fr 0.5fr 0.15fr;
+    padding-top: 40px;
   }
 
   h6 {
