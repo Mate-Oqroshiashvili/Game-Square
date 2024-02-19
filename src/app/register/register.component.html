@@ -1,0 +1,79 @@
+<div
+  class="center-dark"
+  [ngClass]="{
+    'center-light': lightTheme === true,
+    'center-dark': lightTheme === false
+  }"
+>
+  <form [formGroup]="registrationForm" (ngSubmit)="register()">
+    <div class="form-floating mb-3">
+      <input
+        formControlName="username"
+        [ngClass]="{
+          light: lightTheme === true,
+          dark: lightTheme === false
+        }"
+        type="text"
+        class="form-control dark"
+        id="registerInput"
+        placeholder="Input Name"
+      />
+      <label for="registerInput">User Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input
+        formControlName="email"
+        [ngClass]="{
+          light: lightTheme === true,
+          dark: lightTheme === false
+        }"
+        type="email"
+        class="form-control dark"
+        id="registerMail"
+        placeholder="name@example.com"
+      />
+      <label for="registerMail">Email address</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input
+        formControlName="password"
+        [ngClass]="{
+          light: lightTheme === true,
+          dark: lightTheme === false
+        }"
+        type="password"
+        class="form-control dark"
+        id="registerPassword"
+        placeholder="Password"
+      />
+      <label for="registerPassword">Password</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input
+        formControlName="repeatPassword"
+        [ngClass]="{
+          light: lightTheme === true,
+          dark: lightTheme === false
+        }"
+        type="password"
+        class="form-control dark"
+        id="registerRepeatePassword"
+        placeholder="Repeat Password"
+      />
+      <label for="registerRepeatePassword">Repeat Password</label>
+    </div>
+
+    <div class="registerBtn">
+      <button
+        type="submit"
+        class="btn btn-light"
+        [disabled]="registrationForm.invalid"
+      >
+        Register
+      </button>
+    </div>
+  </form>
+</div>

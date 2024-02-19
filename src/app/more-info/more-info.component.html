@@ -1,0 +1,182 @@
+<div class="view-more">
+  <div
+    class="top-dark"
+    [ngClass]="{
+      'top-light': lightTheme === true,
+      'top-dark': lightTheme === false
+    }"
+  >
+    <div
+      id="carouselExample"
+      class="carousel slide slide-dark"
+      [ngClass]="{
+        'slide-light': lightTheme === true,
+        'slide-dark': lightTheme === false
+      }"
+    >
+      <div class="carousel-inner" style="border-radius: 10px">
+        <div
+          class="carousel-item"
+          *ngFor="let item of obj.screenshots; let i = index"
+          [class.active]="i === 0"
+        >
+          <img
+            style="border-radius: 10px"
+            [src]="item.image"
+            class="d-block w-100"
+            alt="..."
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div
+      class="info-dark"
+      [ngClass]="{
+        'info-light': lightTheme === true,
+        'info-dark': lightTheme === false
+      }"
+    >
+      <div class="center">
+        <div class="h4">
+          <h4>{{ obj.title }}</h4>
+        </div>
+        <div class="text">
+          <div class="p">
+            <h6>Genre: {{ obj.genre }}</h6>
+            <h6>Platform: {{ obj.platform }}</h6>
+            <h6>Publisher: {{ obj.publisher }}</h6>
+            <h6>Developer: {{ obj.developer }}</h6>
+            <h6>Release date: {{ obj.release_date }}</h6>
+          </div>
+        </div>
+        <div class="button">
+          <button
+            class="btn btn-light"
+            *ngIf="addedToLibrary && auth.isLoggedIn"
+          >
+            <a
+              style="text-decoration: none; color: black"
+              href="{{ obj.game_url }}"
+              >Download Now</a
+            >
+          </button>
+          <button
+            class="btn btn-light"
+            *ngIf="!addedToLibrary || !auth.isLoggedIn"
+            (click)="[openModal(), addToLibrary()]"
+          >
+            Add to library
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div
+      class="requirements-dark"
+      [ngClass]="{
+        'requirements-light': lightTheme === true,
+        'requirements-dark': lightTheme === false
+      }"
+    >
+      <div class="center">
+        <div class="h4">
+          <h4>System requirements</h4>
+        </div>
+        <div class="text">
+          <div class="p">
+            <h6>
+              OS:
+              {{
+                obj?.minimum_system_requirements?.os
+                  | truncateText : 45 || "No Data Found"
+              }}
+            </h6>
+            <h6>
+              CPU:
+              {{
+                obj?.minimum_system_requirements?.processor
+                  | truncateText : 45 || "No Data Found"
+              }}
+            </h6>
+            <h6>
+              RAM:
+              {{
+                obj?.minimum_system_requirements?.memory
+                  | truncateText : 45 || "No Data Found"
+              }}
+            </h6>
+            <h6>
+              GPU:
+              {{
+                obj?.minimum_system_requirements?.graphics
+                  | truncateText : 45 || "No Data Found"
+              }}
+            </h6>
+            <h6 style="margin-bottom: 0px">
+              HDD/SSD:
+              {{
+                obj?.minimum_system_requirements?.storage
+                  | truncateText : 45 || "No Data Found"
+              }}
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="description-dark"
+      [ngClass]="{
+        'description-light': lightTheme === true,
+        'description-dark': lightTheme === false
+      }"
+    >
+      <div class="center">
+        <div class="h4">
+          <h4 style="margin: 0px">Leave a comment</h4>
+        </div>
+        <div class="text">
+          <div class="merge" style="width: 100%">
+            <div class="form-floating">
+              <textarea
+                [ngClass]="{
+                  'textArea-light': lightTheme === true,
+                  'textArea-dark': lightTheme === false
+                }"
+                class="form-control textArea-dark"
+                placeholder="Leave a comment here"
+                id="floatingTextarea2"
+                style="height: 80px; margin: 20px 0px"
+              ></textarea>
+              <label for="floatingTextarea2">Comments</label>
+            </div>
+            <div class="button">
+              <button style="float: right" class="btn btn-light">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

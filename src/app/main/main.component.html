@@ -1,0 +1,9 @@
+<main
+  [ngClass]="{
+    'main-light': lightTheme === true,
+    'main-dark': lightTheme === false
+  }"
+  class="main-dark"
+>
+  <router-outlet></router-outlet>
+</main>

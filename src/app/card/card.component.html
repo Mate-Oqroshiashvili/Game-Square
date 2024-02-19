@@ -1,0 +1,322 @@
+<div class="selects" *ngIf="!isNull">
+  <a
+    class="filter-dark"
+    [ngClass]="{
+      'filter-light': lightTheme === true,
+      'filter-dark': lightTheme === false
+    }"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasRight"
+    aria-controls="offcanvasRight"
+  >
+    <i class="bi bi-filter" style="font-size: 24px"></i>Filter
+  </a>
+
+  <div
+    [ngClass]="{
+      'canvas-light': lightTheme === true,
+      'canvas-dark': lightTheme === false
+    }"
+    class="offcanvas offcanvas-end canvas-dark"
+    tabindex="-1"
+    id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel"
+  >
+    <div class="offcanvas-header">
+      <button
+        type="button"
+        class="btn-close text-reset"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+        style="filter: brightness(0) invert(1)"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="platform">
+        <div class="d-inline-flex gap-1">
+          <button
+            [ngClass]="{
+              'my-collapse-light': lightTheme === true,
+              'my-collapse-dark': lightTheme === false
+            }"
+            class="btn my-collapse-dark"
+            data-bs-toggle="collapse"
+            href="#collapseExample1"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample1"
+          >
+            <p class="goingLeft">Select platform</p>
+            <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+        <div class="collapse" id="collapseExample1">
+          <div
+            [ngClass]="{
+              'filteration-light': lightTheme === true,
+              'filteration-dark': lightTheme === false
+            }"
+            class="card card-body filteration-dark"
+          >
+            <button
+              class="btn btn-dark choice"
+              (click)="[selectPlatform('all'), setActiveButton('button1')]"
+              [ngClass]="{
+                'btn-light': activeButton === 'button1',
+                'btn-dark': activeButton !== 'button1'
+              }"
+            >
+              All
+            </button>
+            <button
+              class="btn btn-dark choice"
+              (click)="[selectPlatform('pc'), setActiveButton('button2')]"
+              [ngClass]="{
+                'btn-light': activeButton === 'button2',
+                'btn-dark': activeButton !== 'button2'
+              }"
+            >
+              PC
+            </button>
+            <button
+              class="btn btn-dark choice"
+              (click)="[selectPlatform('browser'), setActiveButton('button3')]"
+              [ngClass]="{
+                'btn-light': activeButton === 'button3',
+                'btn-dark': activeButton !== 'button3'
+              }"
+            >
+              Browser
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="category">
+        <div class="d-inline-flex gap-1">
+          <button
+            [ngClass]="{
+              'my-collapse-light': lightTheme === true,
+              'my-collapse-dark': lightTheme === false
+            }"
+            class="btn my-collapse-dark"
+            data-bs-toggle="collapse"
+            href="#collapseExample2"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample2"
+          >
+            <p class="goingLeft">Select category</p>
+            <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+        <div class="collapse" id="collapseExample2">
+          <div
+            [ngClass]="{
+              'filteration-light': lightTheme === true,
+              'filteration-dark': lightTheme === false
+            }"
+            class="card card-body filteration-dark"
+          >
+            <button
+              class="btn btn-dark choice"
+              (click)="selectGenre('')"
+              [ngClass]="{
+                'btn-light': activeGenre === '',
+                'btn-dark': activeGenre !== ''
+              }"
+            >
+              All
+            </button>
+            <button
+              class="btn btn-dark choice"
+              *ngFor="let genre of gameGenres"
+              (click)="selectGenre(genre)"
+              [ngClass]="{
+                'btn-light': activeGenre === genre,
+                'btn-dark': activeGenre !== genre
+              }"
+            >
+              {{ genre }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="SortBy">
+        <div class="d-inline-flex gap-1">
+          <button
+            [ngClass]="{
+              'my-collapse-light': lightTheme === true,
+              'my-collapse-dark': lightTheme === false
+            }"
+            class="btn my-collapse-dark"
+            data-bs-toggle="collapse"
+            href="#collapseExample3"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample3"
+          >
+            <p class="goingLeft">Sort By</p>
+            <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+        <div class="collapse" id="collapseExample3">
+          <div
+            [ngClass]="{
+              'filteration-light': lightTheme === true,
+              'filteration-dark': lightTheme === false
+            }"
+            class="card card-body filteration-dark"
+          >
+            <button
+              class="btn btn-dark choice"
+              (click)="
+                [selectChoice('release-date'), sortButton('sortButton1')]
+              "
+              [ngClass]="{
+                'btn-light': activeSort === 'sortButton1',
+                'btn-dark': activeSort !== 'sortButton1'
+              }"
+            >
+              Release date
+            </button>
+            <button
+              class="btn btn-dark choice"
+              (click)="[selectChoice('popularity'), sortButton('sortButton2')]"
+              [ngClass]="{
+                'btn-light': activeSort === 'sortButton2',
+                'btn-dark': activeSort !== 'sortButton2'
+              }"
+            >
+              Popularity
+            </button>
+            <button
+              class="btn btn-dark choice"
+              (click)="
+                [selectChoice('alphabetical'), sortButton('sortButton3')]
+              "
+              [ngClass]="{
+                'btn-light': activeSort === 'sortButton3',
+                'btn-dark': activeSort !== 'sortButton3'
+              }"
+            >
+              Alphabetical
+            </button>
+            <button
+              class="btn btn-dark choice"
+              (click)="[selectChoice('relevance'), sortButton('sortButton4')]"
+              [ngClass]="{
+                'btn-light': activeSort === 'sortButton4',
+                'btn-dark': activeSort !== 'sortButton4'
+              }"
+            >
+              Relevance
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="noCards-dark"
+  [ngClass]="{
+    'noCards-light': lightTheme === true,
+    'noCards-dark': lightTheme === false
+  }"
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 70px;
+  "
+  *ngIf="isNull"
+>
+  <h2 style="margin: 0px">No game found!</h2>
+</div>
+
+<div
+  [ngClass]="{
+    'layout-light': lightTheme === true,
+    'layout-dark': lightTheme === false
+  }"
+  class="layout-dark"
+  *ngIf="!isNull"
+>
+  <div
+    class="AllCards"
+    *ngFor="
+      let item of array
+        | paginate
+          : {
+              itemsPerPage: pageSize,
+              currentPage: currentPage,
+              totalItems: items
+            }
+    "
+  >
+    <div class="card" style="background-color: transparent !important">
+      <img
+        style="height: 100%; border-radius: 10px"
+        [src]="item.thumbnail"
+        class="card-img-top"
+        alt="Card Image"
+      />
+    </div>
+    <div class="center">
+      <div class="card-body" style="min-width: 365px">
+        <p
+          style="font-size: larger; font-weight: 700; margin-bottom: 16px"
+          class="card-text"
+        >
+          {{ item.title | truncateText : 23 }}
+        </p>
+        <div class="texts">
+          <p class="card-text">
+            <i class="bi bi-joystick"></i>Genre:
+            {{ item.genre }}
+          </p>
+          <p class="card-text">
+            <i class="bi bi-pc-display"></i>Platform:
+            {{ item.platform }}
+          </p>
+          <p class="card-text">
+            <i class="bi bi-people-fill"></i>Developer:
+            {{ item.developer | truncateText : 20 }}
+          </p>
+          <p class="card-text">
+            <i class="bi bi-calendar-check-fill"></i>Release date:
+            {{ item.release_date }}
+          </p>
+        </div>
+        <button
+          style="
+            margin: 15px 0px 0px 0px;
+            background-color: #e9f2f2;
+            color: #121212;
+          "
+          class="btn"
+          (click)="onButtonClick(item.id)"
+        >
+          View More
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pagination" *ngIf="!isNull">
+  <pagination-controls
+    [ngClass]="{
+      'pagination-light': lightTheme === true,
+      'pagination-dark': lightTheme === false
+    }"
+    class="pagination-dark"
+    style="color: #e9f2f2"
+    (pageChange)="onPaginationClick($event)"
+  ></pagination-controls>
+</div>

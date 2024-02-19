@@ -1,0 +1,71 @@
+@media screen and (max-width: 1650px) {
+  img {
+    width: 320px;
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  img {
+    width: 240px;
+    height: 135px;
+  }
+
+  a {
+    font-size: 10px;
+  }
+
+  .btn {
+    padding: 5px 10px !important;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  img {
+    width: 400px;
+    height: 225px;
+  }
+
+  a {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 6px 12px !important;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .pagination ::ng-deep .ngx-pagination .pagination-previous,
+  .pagination ::ng-deep .ngx-pagination .pagination-next {
+    font-size: 10px !important;
+  }
+
+  .pagination ::ng-deep .ngx-pagination .current,
+  .pagination ::ng-deep .ngx-pagination li {
+    font-size: 8px !important;
+  }
+
+  .pagination-dark,
+  .pagination-light {
+    padding: 10px;
+  }
+
+  .pagination {
+    height: 100px;
+  }
+
+  .dropdown-menu {
+    width: 85vw;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  a {
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 5px 10px !important;
+  }
+}

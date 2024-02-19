@@ -1,0 +1,116 @@
+<div
+  class="myGames-dark"
+  [ngClass]="{
+    'myGames-light': lightTheme === true,
+    'myGames-dark': lightTheme === false
+  }"
+  *ngIf="!isNull"
+>
+  <div class="center">
+    <div
+      *ngFor="
+        let game of libraryArray
+          | paginate
+            : {
+                itemsPerPage: pageSize,
+                currentPage: currentPage,
+                totalItems: items
+              }
+      "
+      class="myCard-dark"
+      [ngClass]="{
+        'myCard-light': lightTheme === true,
+        'myCard-dark': lightTheme === false
+      }"
+    >
+      <div
+        class="img"
+        (click)="onButtonClick(game.id)"
+        style="border-radius: 10px; cursor: pointer"
+      >
+        <img
+          class="greeter-guy"
+          ngSrc="{{ game.thumbnail }}"
+          width="400"
+          height="225"
+          style="max-width: 100%; height: 100%; border-radius: 10px"
+          priority
+        />
+      </div>
+
+      <div class="bottom">
+        <div class="title">
+          <p style="margin: 0px; color: #e9f2f2">{{ game.title }}</p>
+        </div>
+
+        <div class="dropdown">
+          <a
+            class="icon"
+            style="text-decoration: none; color: #e9f2f2; padding: 5px 10px"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-three-dots"></i>
+          </a>
+
+          <ul class="dropdown-menu">
+            <li>
+              <div class="dropdown-item viewMore">
+                <a
+                  style="width: 100%"
+                  class="btn btn-light"
+                  (click)="removeFromLibrary(game.id)"
+                  *ngIf="libraryService.isInLibrary(game.id)"
+                >
+                  Remove from Library
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="dropdown-item download">
+                <a
+                  class="btn btn-light"
+                  style="width: 100%"
+                  href="{{ game.game_url }}"
+                  *ngIf="libraryService.isInLibrary(game.id)"
+                  >Download</a
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="noCards-dark"
+  [ngClass]="{
+    'noCards-light': lightTheme === true,
+    'noCards-dark': lightTheme === false
+  }"
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70px;
+  "
+  *ngIf="isNull"
+>
+  <h2 style="margin: 0px">No game found!</h2>
+</div>
+
+<div class="pagination" *ngIf="!isNull">
+  <pagination-controls
+    [ngClass]="{
+      'pagination-light': lightTheme === true,
+      'pagination-dark': lightTheme === false
+    }"
+    class="pagination-dark"
+    style="color: #e9f2f2"
+    (pageChange)="onPaginationClick($event)"
+  ></pagination-controls>
+</div>

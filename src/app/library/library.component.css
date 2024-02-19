@@ -1,0 +1,107 @@
+.myGames-dark,
+.myGames-light {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3vh 3vw;
+  margin-top: 6vh;
+  width: 91vw;
+  background-color: rgba(32, 32, 32, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+}
+
+.myGames-light {
+  background-color: hsla(28, 23%, 14%, 0.5);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+}
+
+.center {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6vh;
+}
+
+.myCard-dark,
+.myCard-light {
+  display: grid;
+  grid-template-rows: 4fr 1fr;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.noCards-dark,
+.noCards-light {
+  border-radius: 10px;
+  color: #e9f2f2;
+  background-color: #20202092;
+  padding: 2vw;
+}
+
+.pagination {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination ::ng-deep .ngx-pagination a:hover,
+.pagination ::ng-deep .ngx-pagination button:hover,
+.pagination ::ng-deep .ngx-pagination a:focus,
+.pagination ::ng-deep .ngx-pagination button:focus {
+  color: #121212;
+  background-color: #e9f2f2;
+}
+
+.pagination-dark {
+  background-color: rgba(32, 32, 32, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.pagination-light {
+  background-color: hsla(28, 23%, 14%, 0.5);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.pagination ::ng-deep .ngx-pagination {
+  padding: 0px !important;
+  margin: 0px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.pagination ::ng-deep .ngx-pagination .pagination-previous:active,
+.pagination ::ng-deep .ngx-pagination .pagination-next:active,
+.pagination ::ng-deep .ngx-pagination .current:active,
+.pagination ::ng-deep .ngx-pagination li:active {
+  background-color: #202020 !important;
+}
+
+.icon:hover,
+.icon:focus,
+.dropdown-menu {
+  background-color: #2020208a;
+  border-radius: 10px;
+}
+
+.icon:hover,
+.icon:focus {
+  border-radius: 5px;
+}
+
+.dropdown-item {
+  background-color: transparent;
+}

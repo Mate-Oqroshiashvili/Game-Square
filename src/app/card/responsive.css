@@ -1,0 +1,136 @@
+@media screen and (min-width: 2405px) {
+  .layout-dark,
+  .layout-light {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1700px) and (max-width: 2405px) {
+  .layout-dark,
+  .layout-light {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1405px) and (max-width: 1700px) {
+  .card-body {
+    min-width: 260px !important;
+  }
+}
+
+@media screen and (min-width: 1250px) and (max-width: 1405px) {
+  .layout-dark,
+  .layout-light {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 520px) and (max-width: 900px) {
+  .layout-dark,
+  .layout-light {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 520px) {
+  .layout-dark,
+  .layout-light {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 365px) and (max-width: 450px) {
+  .layout-dark,
+  .layout-light {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 10px 15px;
+  }
+
+  .selects {
+    padding: 10px 15px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+  }
+
+  .card-body {
+    min-width: 335px !important;
+    padding-right: 90px;
+  }
+}
+
+@media screen and (min-width: 340px) and (max-width: 365px) {
+  .layout-dark,
+  .layout-light {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 10px 20px;
+  }
+
+  .selects {
+    padding: 10px 20px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+  }
+
+  .card-body {
+    min-width: 301px !important;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .layout-dark,
+  .layout-light {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 10px 10px;
+  }
+
+  .selects {
+    padding: 10px 20px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+  }
+
+  .card-body {
+    min-width: 285px !important;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .pagination ::ng-deep .ngx-pagination .pagination-previous,
+  .pagination ::ng-deep .ngx-pagination .pagination-next {
+    font-size: 10px !important;
+  }
+
+  .pagination ::ng-deep .ngx-pagination .current,
+  .pagination ::ng-deep .ngx-pagination li {
+    font-size: 8px !important;
+  }
+
+  .pagination-dark,
+  .pagination-light {
+    padding: 10px !important;
+  }
+
+  .pagination {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .pagination ::ng-deep .ngx-pagination .pagination-previous,
+  .pagination ::ng-deep .ngx-pagination .pagination-next {
+    font-size: 8px !important;
+  }
+
+  .pagination ::ng-deep .ngx-pagination .current,
+  .pagination ::ng-deep .ngx-pagination li {
+    font-size: 6px !important;
+  }
+}

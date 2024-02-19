@@ -1,0 +1,281 @@
+<div class="home">
+  <div
+    class="title-container-light"
+    [ngClass]="{
+      'title-container-light': lightTheme === true,
+      'title-container-dark': lightTheme === false
+    }"
+  >
+    <div
+      class="greeter"
+      style="display: flex; justify-content: center; align-items: center"
+    >
+      <img
+        class="greeter-guy"
+        ngSrc="{{ imageUrl }}"
+        width="320"
+        height="420"
+        style="max-width: 90%; height: 100%"
+        priority
+      />
+    </div>
+
+    <div class="center">
+      <div class="title">
+        <h1 class="mat-body-1" style="color: #e9f2f2">
+          Welcome to the Game Square
+        </h1>
+      </div>
+      <div
+        class="article"
+        style="
+          color: #e9f2f2;
+          font-size: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <div
+          class="articles"
+          style="display: grid; grid-template-rows: 1fr 1fr 1fr"
+        >
+          <section class="first-section">
+            <p class="top" style="margin-bottom: 5px">
+              🎮 Welcome to Game Square –
+            </p>
+            <p class="bottom">
+              Your Ultimate Spot for Free Games! 🎮 Hey Gamers! Buckle up for a
+              gaming revolution without the price tag – you're now in the Game
+              Square zone, where epic gaming experiences come at no cost...
+            </p>
+          </section>
+          <section class="second-section">
+            <p class="top" style="margin-bottom: 5px">
+              🚀 What's Hot at Game Square?
+            </p>
+            <p class="bottom">
+              We're all about leveling the playing field. Our curated collection
+              of top-notch, free-to-play games covers everything from
+              heart-pounding action to mind-bending puzzles and beyond.
+            </p>
+          </section>
+          <section class="third-section">
+            <p class="top" style="margin-bottom: 5px">
+              📥 Safe Downloads, Always Rest assured, our games are vetted for
+              quality and safety.
+            </p>
+            <p class="bottom">
+              Download without a worry, and gear up for an epic gaming
+              experience! Ready to redefine your gaming journey? Dive into Game
+              Square – where free games meet cutting-edge fun! 🎮🌟
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="headers-light"
+    [ngClass]="{
+      'headers-light': lightTheme === true,
+      'headers-dark': lightTheme === false
+    }"
+  >
+    <h5 style="color: #e9f2f2; margin: 0px">
+      Most recent games on game square
+    </h5>
+  </div>
+
+  <div
+    class="newGamesCarousel-light"
+    [ngClass]="{
+      'newGamesCarousel-light': lightTheme === true,
+      'newGamesCarousel-dark': lightTheme === false
+    }"
+  >
+    <div class="content">
+      <div
+        id="carouselExample"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        (slid.bs.carousel)="updateActiveSlideIndex()"
+      >
+        <div class="carousel-inner" style="border-radius: 8px">
+          <div
+            style="border-radius: 8px"
+            class="carousel-item"
+            *ngFor="let item of newestData; let i = index"
+            [class.active]="i === activeSlideIndex"
+          >
+            <button
+              style="position: absolute; z-index: 2; bottom: 20px; right: 20px"
+              class="btn btn-danger"
+              (click)="onButtonClick(item.id)"
+            >
+              Download
+            </button>
+            <img
+              style="border-radius: 8px"
+              [src]="item.thumbnail"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="links">
+        <div
+          class="buttons"
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+          "
+          *ngFor="let item of newestData; let i = index"
+        >
+          <button
+            class="btn btn-custom-light"
+            [class.active]="i === activeSlideIndex"
+            (click)="setActiveSlideIndex(i)"
+            [ngClass]="{
+              'btn-custom-light': lightTheme === true,
+              'btn-custom-dark': lightTheme === false
+            }"
+          >
+            <img
+              style="border-radius: 5px; width: 100%; height: 100%"
+              [src]="item.thumbnail"
+              alt="..."
+            />
+            <h6 style="margin: auto">
+              {{ item.title | truncateText : 15 }}
+            </h6>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="headers-light"
+    [ngClass]="{
+      'headers-light': lightTheme === true,
+      'headers-dark': lightTheme === false
+    }"
+  >
+    <h5 style="color: #e9f2f2; margin: 0px">
+      Most popular games on game square
+    </h5>
+  </div>
+  <div
+    class="newGamesCarousel-light"
+    [ngClass]="{
+      'newGamesCarousel-light': lightTheme === true,
+      'newGamesCarousel-dark': lightTheme === false
+    }"
+  >
+    <div class="content">
+      <div
+        id="carouselExample1"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        (slid.bs.carousel)="updateActivePopularSlideIndex()"
+      >
+        <div class="carousel-inner" style="border-radius: 8px">
+          <div
+            style="border-radius: 8px"
+            class="carousel-item item1"
+            *ngFor="let item of popularData; let i = index"
+            [class.active]="i === activePopualarSlideIndex"
+          >
+            <button
+              style="position: absolute; z-index: 2; bottom: 20px; right: 20px"
+              class="btn btn-danger"
+              (click)="onButtonClick(item.id)"
+            >
+              Download
+            </button>
+            <img
+              style="border-radius: 8px"
+              [src]="item.thumbnail"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample1"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample1"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="links">
+        <div
+          class="buttons"
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+          "
+          *ngFor="let item of popularData; let i = index"
+        >
+          <button
+            class="btn btn-custom-light"
+            [class.active]="i === activePopualarSlideIndex"
+            (click)="setActivePopularSlideIndex(i)"
+            [ngClass]="{
+              'btn-custom-light': lightTheme === true,
+              'btn-custom-dark': lightTheme === false
+            }"
+          >
+            <img
+              style="border-radius: 5px; width: 100%; height: 100%"
+              [src]="item.thumbnail"
+              alt="..."
+            />
+            <h6 style="margin: auto">
+              {{ item.title | truncateText : 15 }}
+            </h6>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

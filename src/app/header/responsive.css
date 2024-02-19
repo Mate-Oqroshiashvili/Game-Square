@@ -1,0 +1,49 @@
+@media screen and (min-width: 992px) and (max-width: 1103px) {
+  .my-btn {
+    margin: 0px;
+  }
+
+  .btn-user-light,
+  .btn-user-dark {
+    margin: 0px;
+  }
+
+  .search-light,
+  .search-dark {
+    margin: 5px 10px !important;
+  }
+
+  #home {
+    padding-left: 0px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .navbar-brand {
+    margin-right: 0px;
+    margin-left: 10px;
+  }
+
+  #firstUl {
+    margin-left: 10px !important;
+  }
+
+  .my-btn {
+    margin: 0px;
+  }
+
+  .nav-item {
+    margin-top: 10px;
+  }
+
+  #theme {
+    margin-left: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-light,
+  .header-dark {
+    padding: 5px;
+  }
+}

@@ -1,0 +1,51 @@
+<div
+  class="center-dark"
+  [ngClass]="{
+    'center-light': lightTheme === true,
+    'center-dark': lightTheme === false
+  }"
+>
+  <div class="form-floating mb-3">
+    <input
+      [ngClass]="{
+        light: lightTheme === true,
+        dark: lightTheme === false
+      }"
+      type="email"
+      class="form-control dark"
+      id="LoginInput"
+      placeholder="name@example.com"
+      [ngModel]="loginForm.get('mail')?.value"
+      (ngModelChange)="loginForm.get('mail')?.setValue($event)"
+    />
+    <label for="LoginInput">Email address</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input
+      [ngClass]="{
+        light: lightTheme === true,
+        dark: lightTheme === false
+      }"
+      type="password"
+      class="form-control dark"
+      id="LoginPassword"
+      placeholder="Password"
+      [ngModel]="loginForm.get('password')?.value"
+      (ngModelChange)="loginForm.get('password')?.setValue($event)"
+    />
+    <label for="LoginPassword">Password</label>
+  </div>
+
+  <div class="loginBtn">
+    <a
+      style="color: #e9f2f2; margin: auto; margin-left: 0px"
+      routerLink="./forgotPassword"
+      >Forgot password</a
+    >
+
+    <button (click)="login()" type="submit" class="btn btn-light">
+      Sign in
+    </button>
+  </div>
+</div>

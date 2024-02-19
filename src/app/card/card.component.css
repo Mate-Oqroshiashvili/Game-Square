@@ -1,0 +1,217 @@
+.layout-dark {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+  min-width: 91vw;
+  background-color: rgba(32, 32, 32, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border-top-right-radius: 0px;
+}
+
+.layout-light {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+  min-width: 91vw;
+  background-color: hsla(28, 23%, 14%, 0.5);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border-top-right-radius: 0px;
+}
+
+.AllCards {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-radius: 10px;
+}
+
+.selects {
+  display: flex;
+  justify-content: flex-end;
+  width: 97vw;
+  margin: auto;
+  padding-top: 20px;
+}
+
+p {
+  color: #e9f2f2;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+i {
+  margin-right: 10px;
+}
+
+.card-text {
+  margin-bottom: 8px;
+}
+
+.pagination {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination ::ng-deep .ngx-pagination a:hover,
+.pagination ::ng-deep .ngx-pagination button:hover,
+.pagination ::ng-deep .ngx-pagination a:focus,
+.pagination ::ng-deep .ngx-pagination button:focus {
+  color: #121212;
+  background-color: #e9f2f2;
+}
+
+.pagination-dark {
+  background-color: rgba(32, 32, 32, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.pagination-light {
+  background-color: hsla(28, 23%, 14%, 0.5);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.pagination ::ng-deep .ngx-pagination {
+  padding: 0px !important;
+  margin: 0px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.pagination ::ng-deep .ngx-pagination .pagination-previous:active,
+.pagination ::ng-deep .ngx-pagination .pagination-next:active,
+.pagination ::ng-deep .ngx-pagination .current:active,
+.pagination ::ng-deep .ngx-pagination li:active {
+  background-color: #202020 !important;
+}
+
+select {
+  margin: 10px 0px;
+}
+
+.my-collapse-dark {
+  background-color: #121212;
+  margin: 20px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-collapse-dark p {
+  color: #e9f2f2;
+  margin: 0px;
+  font-size: 16px;
+  padding: 6px;
+}
+
+.my-collapse-dark:active {
+  background-color: #121212;
+  color: #e9f2f2;
+}
+
+.my-collapse-light {
+  background-color: rgb(79, 58, 33);
+  margin: 20px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-collapse-light p {
+  color: #e9f2f2;
+  margin: 0px;
+  font-size: 16px;
+  padding: 6px;
+}
+
+.my-collapse-light:active {
+  background-color: rgb(79, 58, 33);
+  color: #e9f2f2;
+}
+
+.gap-1 {
+  width: 100%;
+}
+
+.choice {
+  margin: 10px 0px;
+}
+
+.filteration-dark {
+  background-color: #121212;
+}
+
+.filteration-light {
+  background-color: rgb(79, 58, 33);
+}
+
+.bi-chevron-down {
+  color: #e9f2f2;
+}
+
+.noCards-dark {
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  color: #e9f2f2;
+  background-color: #20202092;
+}
+
+.noCards-light {
+  border-radius: 10px;
+  color: #e9f2f2;
+  background-color: hsla(28, 23%, 14%, 0.5);
+  backdrop-filter: blur(20px);
+}
+
+.canvas-dark {
+  background-color: #202020;
+  width: 320px;
+}
+
+.canvas-light {
+  background-color: hsla(30, 20%, 12%, 1);
+  width: 320px;
+}
+
+.filter-dark {
+  color: #e9f2f2;
+  background-color: rgba(32, 32, 32, 0.4);
+  backdrop-filter: blur(20px);
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+
+.filter-light {
+  color: #e9f2f2;
+  background-color: hsla(28, 23%, 14%, 0.5);
+  backdrop-filter: blur(20px);
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px;
+  padding-bottom: 0px;
+}

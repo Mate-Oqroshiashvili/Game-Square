@@ -1,0 +1,31 @@
+@media screen and (max-width: 850px) {
+  .center-dark,
+  .center-light {
+    width: 80vw !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .center-dark,
+  .center-light {
+    width: 90vw !important;
+  }
+
+  input[_ngcontent-ng-c1450419355] {
+    padding: 12px 8px;
+  }
+
+  .form-floating {
+    margin: 20px 0px !important;
+  }
+
+  .loginBtn {
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+  }
+
+  .btn-light {
+    margin: 0px;
+  }
+}

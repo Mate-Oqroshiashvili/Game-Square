@@ -1,0 +1,77 @@
+.center-dark {
+  width: 40vw !important;
+  padding: 20px;
+  background-color: rgba(32, 32, 32, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+}
+
+.center-light {
+  width: 40vw !important;
+  padding: 20px;
+  background-color: hsla(28, 23%, 14%, 0.5);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+}
+
+.form-floating {
+  margin: 20px !important;
+}
+
+.registerBtn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+}
+
+#noPadding {
+  padding-top: 0px !important;
+}
+
+label {
+  color: #e9f2f2d6;
+  z-index: 0;
+}
+
+input:not(:placeholder-shown) ~ label {
+  color: #e9f2f2;
+  background-color: transparent;
+}
+
+input:focus ~ label {
+  color: #e9f2f2d6;
+  background-color: transparent !important;
+}
+
+.form-floating > .form-control-plaintext ~ label::after,
+.form-floating > .form-control:focus ~ label::after,
+.form-floating > .form-control:not(:placeholder-shown) ~ label::after,
+.form-floating > .form-select ~ label::after {
+  background-color: transparent;
+}
+
+.dark {
+  background-color: hsla(0, 0%, 13%, 0.5);
+  color: #e9f2f2;
+  border: none;
+}
+
+.dark:focus {
+  background-color: hsla(0, 0%, 13%, 0.9);
+  color: #e9f2f2;
+  outline: none;
+  box-shadow: none;
+}
+
+.light {
+  background-color: hsla(30, 20%, 12%, 0.5);
+  color: #e9f2f2;
+  border: none;
+}
+
+.light:focus {
+  background-color: hsla(30, 20%, 12%, 0.8);
+  color: #e9f2f2;
+  outline: none;
+  box-shadow: none;
+}
