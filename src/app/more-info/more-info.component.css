@@ -127,7 +127,7 @@ label {
   z-index: 0;
 }
 
-.form-floating > label,
+.form-floating label,
 .form-floating .form-control-plaintext + label,
 .form-floating .form-control:focus + label,
 .form-floating .form-control:not(:placeholder-shown) + label,
