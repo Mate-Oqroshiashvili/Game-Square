@@ -53,13 +53,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "optimization": {
-                "scripts": true,
-                "styles": {
-                  "minify": true,
-                  "inlineCritical": false
-                }
-              },
+              "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
             }
