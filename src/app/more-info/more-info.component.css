@@ -127,12 +127,14 @@ label {
   z-index: 0;
 }
 
-textarea:not(:placeholder-shown) ~ label {
+textarea:not(:placeholder-shown) ~ label,
+textarea.ng-dirty ~ label {
   color: #e9f2f277;
   background-color: transparent;
 }
 
-textarea:focus ~ label {
+textarea:focus ~ label,
+textarea.ng-dirty ~ label {
   color: #e9f2f277;
   background-color: transparent !important;
 }
@@ -140,7 +142,8 @@ textarea:focus ~ label {
 .form-floating > .form-control-plaintext ~ label::after,
 .form-floating > .form-control:focus ~ label::after,
 .form-floating > .form-control:not(:placeholder-shown) ~ label::after,
-.form-floating > .form-select ~ label::after {
+.form-floating > .form-select ~ label::after,
+.form-floating > .form-control.ng-dirty ~ label::after {
   background-color: transparent;
 }
 
