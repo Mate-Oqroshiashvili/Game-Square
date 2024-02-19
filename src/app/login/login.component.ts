@@ -11,7 +11,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { RouterLink, Router } from '@angular/router';
 import { AuthGuardService } from '../auth-guard.service';
 import { ThemeService } from '../theme.service';
-import { SweetAlertService } from '../sweet-alert.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -30,8 +30,7 @@ export class LoginComponent implements OnInit {
     private auth: AuthGuardService,
     private router: Router,
     private themeService: ThemeService,
-    private formBuilder: FormBuilder,
-    private sweetAlertService: SweetAlertService
+    private formBuilder: FormBuilder
   ) {
     this.loginForm = this.formBuilder.group({
       mail: ['', [Validators.required, Validators.email]],
@@ -55,28 +54,20 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.invalid) {
-      this.sweetAlertService.showAlert(
-        'Oops!',
-        'Please enter both mail and password.',
-        'warning'
-      );
+      Swal.fire('Oops!', 'Please enter both mail and password.', 'warning');
       return;
     }
 
     const { mail, password } = this.loginForm.value;
 
     if (this.auth.login(mail, password)) {
-      this.sweetAlertService.showAlert(
-        'Logging in...',
-        'You logged in successfully.',
-        'success'
-      );
+      Swal.fire('Logging in...', 'You logged in successfully.', 'success');
       this.auth.isLoggedIn = true;
       this.router.navigate(['']);
       window.scrollTo(0, 0);
       this.activeModal.close(LoginComponent);
     } else {
-      this.sweetAlertService.showAlert(
+      Swal.fire(
         'Oops!',
         'Invalid mail or password. Please try again.',
         'warning'

@@ -1,9 +1,7 @@
-import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { isPlatformBrowser } from '@angular/common';
-import { LibraryService } from './library.service';
 import { BehaviorSubject } from 'rxjs';
-import { SweetAlertService } from './sweet-alert.service';
+import Swal from 'sweetalert2';
 
 interface User {
   email: string;
@@ -21,10 +19,7 @@ export class AuthGuardService {
     ? JSON.parse(localStorage.getItem('isLoggedIn') || 'false')
     : false;
 
-  constructor(
-    private router: Router,
-    private sweetAlertService: SweetAlertService
-  ) {
+  constructor(private router: Router) {
     this.loadLoggedInUserFromLocalStorage();
   }
 
@@ -89,11 +84,7 @@ export class AuthGuardService {
       return;
     }
 
-    this.sweetAlertService.showAlert(
-      'Logging out...',
-      'User logged out successfully.',
-      'info'
-    );
+    Swal.fire('Logging out...', 'User logged out successfully.', 'info');
     this.isLoggedIn = false;
     localStorage.setItem('isLoggedIn', 'false');
     this.saveLoggedInUserToLocalStorage();

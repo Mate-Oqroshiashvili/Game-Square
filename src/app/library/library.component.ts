@@ -5,7 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { CommonModule, NgIf, NgOptimizedImage } from '@angular/common';
 import { ThemeService } from '../theme.service';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { SweetAlertService } from '../sweet-alert.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-library',
@@ -33,8 +33,7 @@ export class LibraryComponent implements OnInit {
     public libraryService: LibraryService,
     private dataService: DataService,
     private router: Router,
-    private themeService: ThemeService,
-    private sweetAlertService: SweetAlertService
+    private themeService: ThemeService
   ) {}
 
   ngOnInit(): void {
@@ -62,7 +61,7 @@ export class LibraryComponent implements OnInit {
   }
 
   removeFromLibrary(gameId: number) {
-    this.sweetAlertService.showAlert(
+    Swal.fire(
       'Removing game from library...',
       'Game successfully removed from library.',
       'success'

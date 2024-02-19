@@ -10,7 +10,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthGuardService } from '../auth-guard.service';
 import { Router } from '@angular/router';
 import { ThemeService } from '../theme.service';
-import { SweetAlertService } from '../sweet-alert.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forgot-password',
@@ -29,8 +29,7 @@ export class ForgotPasswordComponent implements OnInit {
     private authService: AuthGuardService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private themeService: ThemeService,
-    private sweetAlertService: SweetAlertService
+    private themeService: ThemeService
   ) {
     this.resetPasswordForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -59,7 +58,7 @@ export class ForgotPasswordComponent implements OnInit {
       if (control) {
         control.markAsTouched();
         if (control.errors) {
-          this.sweetAlertService.showAlert(
+          Swal.fire(
             'Oops!',
             'Please fill in all the required fields.',
             'warning'
@@ -73,7 +72,7 @@ export class ForgotPasswordComponent implements OnInit {
       this.resetPasswordForm.value;
 
     if (newPassword !== repeatNewPassword) {
-      this.sweetAlertService.showAlert(
+      Swal.fire(
         'Oops!',
         'Passwords do not match. Please try again.',
         'warning'
@@ -82,7 +81,7 @@ export class ForgotPasswordComponent implements OnInit {
     }
 
     if (this.authService.resetPassword(email, newPassword)) {
-      this.sweetAlertService.showAlert(
+      Swal.fire(
         'Reseting password...',
         'Password reseted successfully.',
         'success'
@@ -90,7 +89,7 @@ export class ForgotPasswordComponent implements OnInit {
       this.router.navigate(['login']);
       window.scrollTo(0, 0);
     } else {
-      this.sweetAlertService.showAlert(
+      Swal.fire(
         'Oops!',
         'Failed to reset password. Please check your email and try again.',
         'error'

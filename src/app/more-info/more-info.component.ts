@@ -11,7 +11,7 @@ import { LibraryService } from '../library.service';
 import { ModalComponent } from '../modal/modal.component';
 import { AuthGuardService } from '../auth-guard.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SweetAlertService } from '../sweet-alert.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-more-info',
@@ -40,7 +40,6 @@ export class MoreInfoComponent implements OnInit {
     private libraryService: LibraryService,
     private modalService: NgbModal,
     public auth: AuthGuardService,
-    private sweetAlertService: SweetAlertService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
@@ -84,7 +83,7 @@ export class MoreInfoComponent implements OnInit {
     const gameId = this.obj.id;
 
     if (!this.libraryService.isInLibrary(gameId)) {
-      this.sweetAlertService.showAlert(
+      Swal.fire(
         'Adding game to library...',
         'Game successfully added to library.',
         'success'
@@ -92,7 +91,7 @@ export class MoreInfoComponent implements OnInit {
       this.libraryService.addToLibrary(this.obj);
       this.addedToLibrary = true;
     } else {
-      this.sweetAlertService.showAlert(
+      Swal.fire(
         'Oops!',
         'Something went wrong. Game can not be added to library.',
         'error'

@@ -9,7 +9,7 @@ import {
 import { Router, RouterLink } from '@angular/router';
 import { ThemeService } from '../theme.service';
 import { CommonModule } from '@angular/common';
-import { SweetAlertService } from '../sweet-alert.service';
+import Swal from 'sweetalert2';
 
 interface User {
   username: string;
@@ -32,8 +32,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private router: Router,
     private themeService: ThemeService,
-    private formBuilder: FormBuilder,
-    private sweetAlertService: SweetAlertService
+    private formBuilder: FormBuilder
   ) {
     const storedUsers = localStorage.getItem('users');
     this.users = storedUsers ? JSON.parse(storedUsers) : [];
@@ -63,11 +62,7 @@ export class RegisterComponent implements OnInit {
   register() {
     if (this.registrationForm.invalid) {
       this.markAllFormControlsAsTouched();
-      this.sweetAlertService.showAlert(
-        'Oops!',
-        'Please fill in all fields correctly.',
-        'warning'
-      );
+      Swal.fire('Oops!', 'Please fill in all fields correctly.', 'warning');
       return;
     }
 
@@ -75,17 +70,13 @@ export class RegisterComponent implements OnInit {
     const repeatPassword = this.registrationForm.get('repeatPassword')!.value;
 
     if (password !== repeatPassword) {
-      this.sweetAlertService.showAlert(
-        'Oops!',
-        'Passwords do not match.',
-        'warning'
-      );
+      Swal.fire('Oops!', 'Passwords do not match.', 'warning');
       return;
     }
 
     const email = this.registrationForm.get('email')!.value;
     if (this.isEmailAlreadyUsed(email)) {
-      this.sweetAlertService.showAlert(
+      Swal.fire(
         'Oops!',
         'This email is already in use. Please choose a different one.',
         'warning'
@@ -114,11 +105,7 @@ export class RegisterComponent implements OnInit {
     localStorage.setItem('users', JSON.stringify(this.users));
 
     this.registrationForm.reset();
-    this.sweetAlertService.showAlert(
-      'Registering...',
-      'You successfully registered.',
-      'success'
-    );
+    Swal.fire('Registering...', 'You successfully registered.', 'success');
     this.router.navigate(['']);
     window.scrollTo(0, 0);
   }
