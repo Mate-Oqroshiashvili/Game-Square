@@ -49,12 +49,17 @@ export class LibraryService {
   private initializeLibrary(): void {
     const userEmail = this.authGuardService.getUserEmail();
     const key = this.generateLibraryKey(userEmail!);
-    const storedLibrary = localStorage.getItem(key);
-    this.library = storedLibrary ? JSON.parse(storedLibrary) : [];
+
+    if (typeof localStorage !== 'undefined') {
+      const storedLibrary = localStorage.getItem(key);
+      this.library = storedLibrary ? JSON.parse(storedLibrary) : [];
+    }
   }
 
   private saveLibraryToLocalStorage(key: string): void {
-    localStorage.setItem(key, JSON.stringify(this.library));
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(key, JSON.stringify(this.library));
+    }
   }
 
   private subscribeToAuthChanges(): void {
