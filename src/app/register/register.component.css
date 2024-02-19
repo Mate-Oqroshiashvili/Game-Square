@@ -34,7 +34,7 @@ label {
 }
 
 input:not(:placeholder-shown) ~ label,
-input:focus ~ label,
+input.ng-dirty ~ label,
 .form-floating > .form-control-plaintext:not(:placeholder-shown) ~ label::after,
 .form-floating > .form-control:focus ~ label::after,
 .form-floating > .form-control:not(:placeholder-shown) ~ label::after,
@@ -43,6 +43,7 @@ input:focus ~ label,
 }
 
 input:not(:placeholder-shown) ~ label,
+input.ng-dirty ~ label,
 .form-floating > .form-control:not(:placeholder-shown) ~ label::after {
   color: #e9f2f2;
 }
