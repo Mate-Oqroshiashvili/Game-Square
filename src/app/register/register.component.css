@@ -14,10 +14,6 @@
   border-radius: 10px;
 }
 
-.form-floating {
-  margin: 20px !important;
-}
-
 .registerBtn {
   display: flex;
   justify-content: flex-end;
@@ -33,26 +29,48 @@ label {
   z-index: 0;
 }
 
-input:not(:placeholder-shown) ~ label,
-input.ng-dirty ~ label,
-.form-floating > .form-control-plaintext:not(:placeholder-shown) ~ label::after,
-.form-floating > .form-control:focus ~ label::after,
-.form-floating > .form-control:not(:placeholder-shown) ~ label::after,
-.form-floating > .form-select ~ label::after {
+.form-floating {
+  margin: 20px !important;
+}
+
+.form-floating input {
+  background-color: hsla(0, 0%, 13%, 0.5);
+  color: #e9f2f2;
+  border: none;
+}
+
+.form-floating input:focus {
+  background-color: hsla(0, 0%, 13%, 0.9);
+  color: #e9f2f2;
+  outline: none;
+  box-shadow: none;
+}
+
+.form-floating label {
+  color: #e9f2f2d6;
+  z-index: 0;
+}
+
+.form-floating input:not(:placeholder-shown) ~ label,
+.form-floating input.ng-dirty ~ label,
+.form-floating .form-control-plaintext:not(:placeholder-shown) ~ label::after,
+.form-floating .form-control:focus ~ label::after,
+.form-floating .form-control:not(:placeholder-shown) ~ label::after,
+.form-floating .form-select ~ label::after {
   background-color: transparent !important;
 }
 
-input:not(:placeholder-shown) ~ label,
-input.ng-dirty ~ label,
-.form-floating > .form-control:not(:placeholder-shown) ~ label::after {
+.form-floating input:not(:placeholder-shown) ~ label,
+.form-floating input.ng-dirty ~ label,
+.form-floating .form-control:not(:placeholder-shown) ~ label::after {
   color: #e9f2f2;
 }
 
-input:focus ~ label,
-.form-floating > .form-control-plaintext:focus ~ label::after,
-.form-floating > .form-control:focus ~ label::after,
-.form-floating > .form-control:not(:placeholder-shown):focus ~ label::after,
-.form-floating > .form-select:focus ~ label::after {
+.form-floating input:focus ~ label,
+.form-floating .form-control-plaintext:focus ~ label::after,
+.form-floating .form-control:focus ~ label::after,
+.form-floating .form-control:not(:placeholder-shown):focus ~ label::after,
+.form-floating .form-select:focus ~ label::after {
   color: #e9f2f2d6;
 }
 
