@@ -1,8 +1,8 @@
 # example netlify.toml
 [build]
   functions = "netlify/functions"
-  publish = "dist/your-angular-project"
-   command = "npm install --loglevel verbose && npm run build"
+  publish = "dist/gaming-app/browser"
+  command = "npm install --loglevel verbose && npm run build"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
