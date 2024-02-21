@@ -29,10 +29,10 @@ export class HomeComponent implements OnInit {
   activeSlideIndex: number = 0;
   activePopualarSlideIndex: number = 0;
   lightTheme: boolean | undefined;
-  imageUrl: string = 'assets/Mate/PNG/Greeting.png';
+  imageUrl: string = 'assets/Mate/PNG/Greeting_50.png';
 
   changeImageSource() {
-    this.imageUrl = 'assets/Mate/PNG/Greeting-light.png';
+    this.imageUrl = 'assets/Mate/PNG/Greeting-light_50.png';
   }
 
   constructor(
@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
       if (this.lightTheme === true) {
         this.changeImageSource();
       } else {
-        this.imageUrl = 'assets/Mate/PNG/Greeting.png';
+        this.imageUrl = 'assets/Mate/PNG/Greeting_50.png';
       }
     }
   }
